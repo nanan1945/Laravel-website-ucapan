@@ -21,7 +21,9 @@
             <div class="button-wrapper">
                 <button type="submit">Kirim Ucapan</button>
                 <div class="button-container">
-                    <button type="submit">sudah nih</button>
+                    <a href="/katakata">
+                        <button type="button">Sudah nih</button>
+                    </a>
                 </div>
         </form>
     </div>
