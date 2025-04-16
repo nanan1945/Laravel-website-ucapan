@@ -30,3 +30,33 @@ function typeWriter(element, text, i = 0) {
 
 // Contoh penggunaan:
 // typeWriter(document.getElementById('pesanPenerima'), 'Ucapan dramatis untuk Nando...');
+
+// Event saat submit form
+document.getElementById('ucapanForm').addEventListener('submit', function (event) {
+    // Validasi input
+    const nama = document.getElementById('nama').value.trim();
+    const tanggalLahir = document.getElementById('tanggal_lahir').value.trim();
+    const pesan = document.getElementById('pesan').value.trim();
+
+    if (!nama || !tanggalLahir || !pesan) {
+        event.preventDefault();
+        alert("Lengkapi semua data terlebih dahulu!");
+        return;
+    }
+
+    localStorage.setItem('formSubmitted', true); // Tandai sudah submit
+});
+
+// Event saat klik tombol "Sudah nih"
+document.querySelector('.button-container a').addEventListener('click', function (event) {
+    // Cek langsung isi input form
+    const nama = document.getElementById('nama').value.trim();
+    const tanggalLahir = document.getElementById('tanggal_lahir').value.trim();
+    const pesan = document.getElementById('pesan').value.trim();
+
+    if (!localStorage.getItem('formSubmitted') || !nama || !tanggalLahir || !pesan) {
+        event.preventDefault();
+        alert("Isi form terlebih dahulu sebelum lanjut!");
+    }
+});
+
